@@ -1,0 +1,1 @@
+// funcção que receber Array de numeros e desvolve a media aritimetica
