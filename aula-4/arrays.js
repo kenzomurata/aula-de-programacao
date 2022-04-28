@@ -20,16 +20,16 @@ var numerosImpares = []
 for(var indice = 0; indice < numeros.length; indice +=1){
     if (numeros[indice]%2 != 0){ 
         numerosImpares.push(numeros[indice])
-        //numerosImpares.unshift(numeros[indice])
+        numerosImpares.unshift(numeros[indice])
     }
 }
 
-//numerosImpares.pop()
+numerosImpares.pop()
 numerosImpares.shift()
-//console.log(numerosImpares)
+console.log(numerosImpares)
 
 
-//console.log("Index Of: ", numeros.indexOf(54))
+console.log("Index Of: ", numeros.indexOf(54))
 
 
 console.log(numeros[numeros.length - 1])
