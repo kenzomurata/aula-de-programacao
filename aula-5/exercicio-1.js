@@ -7,6 +7,7 @@ function faixaEtaria(pessoas, idadeMinima, idadeMaxima){
     }
     return dentroFaixaEtaria
 }
+
 var pessoa1 = {
     nome: "Yumi", 
     idade: 22, 
