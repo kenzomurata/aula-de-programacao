@@ -14,7 +14,7 @@ cada obj tem que ter titulo, data de publlicação, preço, editora (nome, CEP, 
 var livros = [
     {
         titulo: "O Papa Cáca",
-        dataDePublicacao: "09/06/2420",
+        anoDePublicacao: 2420,
         preco: 36.90,
         editora: {
             nome: "Andréia Benitez",
@@ -24,22 +24,32 @@ var livros = [
     },
     {
         titulo: "Xupingole",
-        dataDePublicacao: "03/15/2001",
+        anoDePublicacao: 2001,
         preco: 6969.69,
         editora: {
             nome: "Rebimboca",
-            CEP:"65284-125",
-            CNPJ: "48.956.317/0001-74"
+            CEP: "65284-125",
+            CNPJ: "48.956.317/0001-79"
         }
     },
     {
         titulo: "A Volta Dos Que Não Foram",
-        dataDePublicacao: "02/28/1998",
+        anoDePublicacao: 1998,
         preco: 2.50,
         editora: {
             nome: "Tão Tão Distante",
             CEP: "46318-833",
             CNPJ: "45.861.341/0008-64"
+        }
+    },
+    {
+        titulo:"Chama No Problema",
+        anoDePublicacao: 2002,
+        preco: 89.99,
+        editora: {
+            nome: "Rebimboca",
+            CEP: "65284-125",
+            CNPJ: "48.956.317/0001-79"
         }
     }
 ]
@@ -58,7 +68,7 @@ console.log(livros)
 // -- OU --
 
 livros.sort(function(a, b) {
-    if(a.titulo > b.titulo) {
+    if(a.titulo < b.titulo) {
         return -1;
     } else {
         return true;
@@ -73,12 +83,35 @@ console.log(livros)
 
 /*
 
-livros.sort(function (x, y) {
-    let a = new Date(x.dataDePublicacao);
-    let b = new Date(y.dataDePublicacao);
-    return a - b;
+
+livros.sort(function(a, b) {
+    return b.anoDePublicacao - a.anoDePublicacao
 })
 
 console.log(livros)
 
 */
+
+// -- 3 --
+
+function filtrarEditoras(livros) {
+    var editoras = []
+    for (var indice = 0; indice < livros.length; indice += 1){
+        var estaNoArray = false
+        for (var indice2 = 0; indice2 < editoras.length; indice2 +=1){
+            if(editoras[indice2].nome == livros[indice].editora.nome){
+                estaNoArray = true
+                console.log("Verificou q tem editora duplicada")
+            }
+        }
+        if (!estaNoArray){
+            editoras.push(livros[indice].editora)
+            console.log("Novo array de editoras: ", editoras)
+        }
+    }
+    return editoras
+}
+
+var editoras = filtrarEditoras(livros)
+
+console.log(editoras)
