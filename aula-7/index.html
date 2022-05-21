@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 6 Programação</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="Cabeçalho"><h1>Fernando Kenzo Murata</h1></div>
+      <h2>Fernando</h2>
+      <h3>Kenzo</h3>
+      <h4>Murata</h4>
+      <h5>FKM</h5>
+      <h6>Murata Kenzo</h6>
+    <p style="color:red;background-color:blue">divisão de um texto escrito, indicada pela mudança de linha,<br/> cuja <i>função é mostrar</i> que as <strong>frases</strong> aí contidas mantêm maior relação entre si do que com o restante do texto</p>
+    <img width="360" heigth="200" src="https://static1.patasdacasa.com.br/articles/1/14/1/@/patas-opengraph_1200-1.jpg">
+    <br/>
+    <br/>
+    <img src="cachorro-filhote.jpg" alt="animal">
+    <ol type="I">
+        <li>Maçã</li>
+        <li>Banana</li>
+        <li>Goiaba</li>
+        <li>Laranja</li>
+        <li>Melancia</li>
+    </ol>
+    <ul type="circle">
+        <li>Maçã</li>
+        <li>Banana</li>
+        <li>Goiaba</li>
+        <li>Laranja</li>
+        <li>Melancia</li>
+    </ul>
+    <a href="pagina.html">
+        Outra página
+    </a>
+    <br/>
+    <br/>
+    <button id="Botão">
+        Não clique aqui!
+    </button>
+
+    <img src="https://viajarverde.com.br/wp-content/uploads/2016/07/amazon-rainforest-wallpaper-4-810x506.jpg" alt="Floresta" id="imagemFloresta">
+    <img src="https://blog.queroumnegocio.com.br/wp-content/uploads/2019/05/x-dicas-para-se-planejar-financeiramente-para-comprar-uma-fazenda-20190515145318.jpg.jpg" alt="Fazenda" id="imagemFazenda">
+    
+
+    <button id="Segundo botão">
+        Esse pode clicar!
+    </button>
+    <!-- tag script deve ser o último elemento do body-->
+    <script>
+        var botao = window.document.getElementById("Botão")
+        botao.addEventListener("click", function(){
+            window.location.href="https://www.youtube.com/watch?v=KNStkt1U_9Q"
+        })
+
+        var imagem2 = window.document.getElementById("imagemFazenda")
+        console.log(imagem2)
+        imagem2.style.visibility="hidden"
+
+        var imagem1 = window.document.getElementById("imagemFloresta")
+
+        function trocarImagem(){
+            
+            if(imagem2.style.visibility=="hidden") {
+                imagem1.style.visibility="hidden"
+                imagem2.style.visibility="visible" 
+            }
+            else {
+                imagem1.style.visibility="visible"
+                imagem2.style.visibility="hidden"
+            }
+        }
+
+        imagem1.addEventListener("click", trocarImagem)
+
+        imagem2.addEventListener("click", trocarImagem)
+        
+        var botao2 = window.document.getElementById("Segundo botão")
+        botao2.addEventListener("click", trocarImagem)
+        
+    </script>
+
+  </body>
+</html>
