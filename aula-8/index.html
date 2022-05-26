@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body>
+
+    <h3>Adicionar imagem à galeria</h3>
+
+    <label for="titulo">
+            Título
+    </label>
+
+    <input type="text" id="titulo" name="titulo">
+            
+    <br/>
+    <br/>
+            
+    <label for="endereco">
+        Endereço
+    </label>
+
+    <input type="text" id="endereco" name="endereco">
+
+    <br/>
+    <br/>
+            
+    <button id="Botão">
+        Adicionar
+    </button>
+
+<!--
+    <div class="posicionamento">
+        <div>Um</div>
+        <div>Dois</div>
+        <div>Três</div>
+        <div>Quatro</div>
+        <div>Cinco</div>
+    </div>
+    
+    <div class="posicionamento2">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>I</div>
+    </div>
+-->
+    <div id="galeria"></div>
+
+    <script>
+        
+        var botao = window.document.getElementById("Botão")
+        botao.addEventListener("click", function(){
+            var novaImagem = window.document.createElement("img")
+
+            var input = window.document.getElementById("endereco")  
+
+            novaImagem.src = input.value
+
+            var galeria = window.document.getElementById("galeria")
+            
+            var novoCabecalho = window.document.createElement("h2")
+            
+            var inputTitulo = window.document.getElementById("titulo").value
+            
+            novoCabecalho.innerText = inputTitulo
+            
+            galeria.appendChild(novoCabecalho)
+
+            galeria.appendChild(novaImagem)
+        })
+        
+    </script>
+    
+</body>
+</html>
