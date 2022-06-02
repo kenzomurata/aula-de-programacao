@@ -32,7 +32,6 @@
     <button id="Botão">
         Adicionar
     </button>
-
 <!--
     <div class="posicionamento">
         <div>Um</div>
@@ -44,7 +43,7 @@
     
     <div class="posicionamento2">
         <div>A</div>
-        <div>B</div>
+        <div></div>
         <div>C</div>
         <div>D</div>
         <div>E</div>
@@ -60,23 +59,25 @@
         
         var botao = window.document.getElementById("Botão")
         botao.addEventListener("click", function(){
-            var novaImagem = window.document.createElement("img")
-
-            var input = window.document.getElementById("endereco")  
-
-            novaImagem.src = input.value
-
-            var galeria = window.document.getElementById("galeria")
             
-            var novoCabecalho = window.document.createElement("h2")
-            
+            var inputImagem = window.document.getElementById("endereco").value
             var inputTitulo = window.document.getElementById("titulo").value
             
-            novoCabecalho.innerText = inputTitulo
+            var novaDiv = window.document.createElement("div")
+            var novaImagem = window.document.createElement("img")
+            var novoCabecalho = window.document.createElement("h2")
             
-            galeria.appendChild(novoCabecalho)
-
-            galeria.appendChild(novaImagem)
+            novaDiv.classList.add("conteiner")
+            novaImagem.classList.add("imagem")
+            
+            novoCabecalho.innerText = inputTitulo
+            novaImagem.src = inputImagem
+            novaDiv.appendChild(novoCabecalho)
+            novaDiv.appendChild(novaImagem)
+            
+        
+            var galeria = window.document.getElementById("galeria")
+            galeria.appendChild(novaDiv)
         })
         
     </script>

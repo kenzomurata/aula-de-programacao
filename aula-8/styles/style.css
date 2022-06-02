@@ -10,3 +10,26 @@
     grid-auto-rows: 100px;
 }
 
+#galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1px;
+}
+
+.conteiner {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 5px;
+    height: 385px;
+    width: 315px;
+}
+
+.imagem {
+    width: 300px; 
+    
+}
+
+#galeria > div {
+    border: 1px solid
+}
