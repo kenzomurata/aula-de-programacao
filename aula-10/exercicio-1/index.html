@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="galeria"></div>
+
+    <script>
+        var imagens = [
+    {
+        titulo: "Cachorrinho",
+        imagem: "https://www.petfriendsworld.pt/wp-content/uploads/2020/04/husky-siberiano1.jpg",
+        descricao: "Filhote de cachorro",
+    },
+
+    {
+        titulo: "Otaku",
+        imagem: "https://cloud.estacaonerd.com/wp-content/uploads/2022/05/05142048/anime-friends.jpg",
+        descricao: "Cosplay anime friends",
+    },
+
+    {
+        titulo: "Gatinho",
+        imagem: "https://static.ricmais.com.br/uploads/2022/01/whatsapp-image-2022-01-07-at-12-59-09.jpeg",
+        descricao: "Gato cinzento do olho amarelo",
+    },
+
+    {
+        titulo: "Baleia",
+        imagem: "https://blog.cobasi.com.br/wp-content/uploads/2021/03/orca-capa.png",
+        descricao: "A baleia assassina",
+    },
+    {
+        titulo: "Carro",
+        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl0n3pagmaeH86J_ZdBQeJBW0DZsjz7boh-g&usqp=CAU",
+        descricao: "Carro chique",
+    }
+]
+
+    for(var indice = 0; indice < imagens.length; indice += 1){
+        var itemAtual = imagens[indice]
+        
+        var novaDiv = window.document.createElement("div")
+        var novaImagem = window.document.createElement("img")
+        var novoTitulo = window.document.createElement("h2")
+        var novaDescricao = window.document.createElement("h5")
+
+        novoTitulo.innerText = itemAtual.titulo
+        novaImagem.src = itemAtual.imagem
+        novaImagem.classList.add("imagens")
+        novaDescricao.innerText = itemAtual.descricao
+
+        novaDiv.appendChild(novoTitulo)
+        novaDiv.appendChild(novaImagem)
+        novaDiv.appendChild(novaDescricao)
+
+        var galeria = window.document.getElementById("galeria")
+        galeria.appendChild(novaDiv)
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, auto));
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.imagens {
+    width: 200px;
+}
+
+#galeria > div {
+    border: 1px solid;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+
+}
+
