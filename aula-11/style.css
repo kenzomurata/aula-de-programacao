@@ -1,0 +1,60 @@
+.conteiner {
+    display: grid;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    
+    box-shadow: 5px 5px 5px 5px rgb(228, 228, 228);
+    border-radius: 2px;
+}
+
+.conteinertexto {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+}
+
+.titulo {
+    font-size: 18px;
+    margin-top: 2%;
+    font-weight: 900;
+}
+
+.descricao {
+    font-size: 15px;
+    margin-top: 3%;
+}
+
+.icone {
+    height: 40px;
+    margin-left: -10px;
+    
+}
+
+.conteinerdoicone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    width: 100px;
+    border: 1px solid;
+    background-color: blueviolet;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.violet {
+    background-color: violet;
+}

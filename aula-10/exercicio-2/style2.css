@@ -15,6 +15,7 @@
 .content {
     grid-area: main;
     border: 1px solid;
+    padding-left: 1%;
 }
 
 .content2 {
@@ -24,6 +25,10 @@
 
 .sidebar {
     grid-area: sd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     box-sizing: border-box;
     border: 1px solid;
 }
@@ -32,31 +37,12 @@
     padding-top: 5%;
 }
 
-.botaoinicio {
+.botao {
     border: 1px solid;
     box-sizing: border-box;
     width: 90%;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-    border-left: 0ch;
-}
-
-.botaoimagens {
-    border: 1px solid;
-    box-sizing: border-box;
-    width: 90%;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    border-left: 0ch;
-}
-
-.botao13reasons {
-    border: 1px solid;
-    box-sizing: border-box;
-    width: 90%;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    border-left: 0ch;
 }
 
 .conteiner {
