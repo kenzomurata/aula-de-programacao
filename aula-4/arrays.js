@@ -19,13 +19,13 @@ var numerosImpares = []
 
 for(var indice = 0; indice < numeros.length; indice +=1){
     if (numeros[indice]%2 != 0){ 
-        numerosImpares.push(numeros[indice])
-        numerosImpares.unshift(numeros[indice])
+        numerosImpares.push(numeros[indice]) // adiciona no final
+        numerosImpares.unshift(numeros[indice]) // adiciona no inicio
     }
 }
 
-numerosImpares.pop()
-numerosImpares.shift()
+numerosImpares.pop() // remove do final
+numerosImpares.shift() // remove do incio
 console.log(numerosImpares)
 
 
