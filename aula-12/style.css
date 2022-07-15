@@ -3,27 +3,30 @@
 
 }
 
+.purpletopbar {
+    background-color: rgb(135, 0, 197);
+}
+
 .topbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(135, 0, 197);
     padding-left: 15px;
     padding-top: 10px;
 }
 
 .userconteiner {
     display: flex;
+    background-color: rgb(171, 0, 214);
     border-radius: 20px;
-    background-color: rgb(175, 4, 255);
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
 }
 
-.user {
+.userimg {
     height: 20px;
 }
 
@@ -36,31 +39,31 @@
 
 }
 
-.eye {
+.eyeimg {
     height: 35px;
 }
 
-.questionmark {
+.questionmarkimg {
     height: 22px;
 }
 
-.addprofile {
+.addprofileimg {
     height: 25px;
 }
 
 .undertopbar {
     background-color: rgb(135, 0, 197);
-   
     height: 40px;
     padding-top: 25px;
     padding-left: 17px;
     font-size: large;
-    font-weight: bolder;
+    font-weight: 520;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
     color: white;
 }
 
-.conta{
+
+.conta {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,12 +72,11 @@
     padding-left: 15px;
     padding-top: 25px;
     font-size: large;
-    font-weight: bolder;
+    font-weight: 600;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
-    
 }
 
-.seta {
+.setaimg {
     height: 13px;
 }
 
@@ -82,38 +84,376 @@
     padding-top: 8px;
     padding-left: 15px;
     font-size: medium;
-    font-weight: bolder;
+    font-weight: 600;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 
 .firstmenu {
     display: flex;
     flex-direction: row;
     padding-top: 35px;
     padding-left: 15px;
+    padding-bottom: 24px;
+    gap: 10px;
 }
 
 .menuoptions {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .menuicons {
     display: flex;
-    border: 1px solid;
     justify-content: center;
     align-items: center;
     height: 60px;
     width: 60px;
     border-radius: 30px;
     background-color: rgb(230, 230, 230);
+    
 }
 
-.barcode {
+.piximg {
+    height: 25px;
+}
+
+.barcodeimg {
+    height: 28px;
+}
+
+.moneybillimg {
+    height: 35px;
+    padding-bottom: 3px;
+}
+
+.depositimg {
+    height: 28px;
+}
+
+.cellphoneimg {
+    height: 28px;
+}
+
+.iconstext {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 67px;
+    font-size: 14px;
+    font-weight: 550;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.menugrid {
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 28px;
+}
+
+.secondmenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 58px;
+    width: 90%;
+    border-radius: 9px;
+    background-color: rgb(230, 230, 230);
+    padding-left: 5%;
+    gap: 20px;
+    font-size: medium;
+    font-weight: 550;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-left: 50px;
+}
+
+.cardimg {
+    height: 25px;
+}
+
+.ofertaseguro {
+    display: flex;
+    height: 88px;
+    width: 80%;
+    border-radius: 9px;
+    background-color: rgb(230, 230, 230);
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-weight: 520;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.ofertasegurotext {
+    width: 220px;
+}
+
+.line {
+    height: 3px;
+    background-color: rgb(230, 230, 230);
+}
+
+.contacredito {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.undercredito {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: rgb(99, 99, 99);
+    padding-left: 15px;
+    padding-bottom: 35px;
+    font-size: medium;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.saldocredito {
+    color: black;
+}
+
+.emprestimo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.underemprestimo {
+    width: 350px;
+    padding-left: 15px;
+    padding-bottom: 28px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(99, 99, 99);
+}
+
+
+.investimentos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.underinvestimentos {
+    width: 370px;
+    padding-left: 15px;
+    padding-bottom: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(99, 99, 99);
+}
+
+
+.menuinvestimentos {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    gap: 20px;
+    padding-bottom: 25px;
+}
+
+.investimentosbutton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 58px;
+    width: 90%;
+    border-radius: 9px;
+    background-color: rgb(230, 230, 230);
+    padding-left: 5%;
+    border-left: 50px;
+    gap: 15px;
+    font-size: 17px;
+    font-weight: 550;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-left: 50px;
+
+}
+
+.hexagonoimg {
     height: 20px;
-    width: 20px;
 }
 
+.investimentobillimg {
+    height: 20px;
+}
 
+.buttontext {
+    padding-left: 6px;
+}
+
+.seguros {
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.underseguros {
+    width: 370px;
+    padding-left: 15px;
+    padding-bottom: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(99, 99, 99);
+}
+
+.menuseguros {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    gap: 20px;
+    padding-bottom: 25px;
+}
+
+.segurosbuttonleft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.segurosbutton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+    width: 90%;
+    border-radius: 9px;
+    background-color: rgb(230, 230, 230);
+    padding-left: 5%;
+    border-left: 50px;
+    gap: 15px;
+    font-size: 17px;
+    font-weight: 550;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-left: 50px;
+
+}
+
+.heartimg {
+    height: 28px;
+}
+
+.segurosbuttonconhecer{
+    color: rgb(135, 0, 197);
+    padding-right: 15px;
+}
+
+.shopping {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.undershopping {
+    width: 370px;
+    padding-left: 15px;
+    padding-bottom: 22px;
+    font-size: large;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(99, 99, 99);
+}
+
+.descubramais {
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    font-size: larger;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.descubrabuttons {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 257px;
+    gap: 15px;
+    border-radius: 12px;
+    margin-left: 15px;
+    background-color: rgb(230, 230, 230);
+}
+
+.descubraimg {
+    height: 120px;
+    object-fit: cover;
+    border-top-left-radius: 12px ;
+    border-top-right-radius: 12px;
+
+}
+
+.descubratext {
+    display: flex;
+    flex-direction: column;
+    padding-left: 19px;
+    gap: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.descubratexttt {
+    font-weight: 549;
+}
+
+.descubratextsb {
+    color: rgb(99, 99, 99);
+    width: 200px;
+
+}
+
+.descubraconhecer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(135, 0, 197);
+    width: 95px;
+    height: 35px;
+    border-radius: 50px;
+    color: white;
+}
