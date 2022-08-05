@@ -23,39 +23,94 @@
             <input type="text" class="buscar" name="busca" placeholder="Buscar">
         </div>
 
-        <div class="menugrid">
-            <div class="icone">
-
-                <img src="moneyin.png" class="moneyinimg">
-            </div>
-
-            <div class="descricao">
-                <div class="cardtitulo">
-
-                    <div class="titulo">Compra no débito</div>
-                    
-                    <div class="data">05/08</div>
-
-                </div>
-
-                <div class="subtitulo">
-                    <div>Tutti Frutti</div>
-                    <div>R$20,00</div>
-                </div>
-            </div>
-
+        <div id="lista">
 
         </div>
-
-
     </div>
 
 
 <script>
-    
+    var transacoes = [
+        {
+            tipoDeTransacao: "Transferência recebida",
+            nome: "Fernando Kenzo Murata",
+            data: "26/07",
+            valor: "R$12,99",
+            icone: "moneyin.png",
+        },
+        {
+            tipoDeTransacao: "Compra no débito",
+            nome: "Farmácia Pacheco",
+            data: "02/07",
+            valor: "R$499,99",
+            icone: "moneyout.png",
+        },
+        {
+            tipoDeTransacao: "Transferência recebida",
+            nome: "Andréia Zelada Benitez Perpétuo",
+            data: "20/07",
+            valor: "R$122,99",
+            icone: "moneyin.png",
+        },
+        {
+            tipoDeTransacao: "Compra no débito",
+            nome: "Amil Esportes",
+            data: "16/06",
+            valor: "R$68,99",
+            icone: "moneyout.png",
+        }
+    ]
 
+    function criarCardTransacao(transacao) {
+        var cardsgrid = window.document.createElement("div")
+        var icone = window.document.createElement("div")
+        var img = window.document.createElement("img")
+        var descricao = window.document.createElement("div")
+        var cardtitulo = window.document.createElement("div")
+        var titulo = window.document.createElement("div")
+        var data = window.document.createElement("div")
+        var subtitulo = window.document.createElement("div")
+        var nome = window.document.createElement("div")
+        var valor = window.document.createElement("div")
 
+        cardsgrid.classList.add("cardsgrid")
+        icone.classList.add("icone")
+        img.classList.add("img")
+        descricao.classList.add("descricao")
+        cardtitulo.classList.add("cardtitulo")
+        titulo.classList.add("titulo")
+        data.classList.add("data")
+        subtitulo.classList.add("subtitulo")
 
+        img.src = transacao.icone
+
+        titulo.innerText = transacao.tipoDeTransacao
+        data.innerText = transacao.data
+
+        nome.innerText = transacao.nome
+        valor.innerText = transacao.valor
+
+        subtitulo.appendChild(nome)
+        subtitulo.appendChild(valor)
+
+        cardtitulo.appendChild(titulo)
+        cardtitulo.appendChild(data)
+
+        descricao.appendChild(cardtitulo)
+        descricao.appendChild(subtitulo)
+
+        icone.appendChild(img)
+
+        cardsgrid.appendChild(icone)
+        cardsgrid.appendChild(descricao)
+
+        lista.appendChild(cardsgrid)
+
+    }
+
+    for(var indice = 0; indice < transacoes.length; indice += 1){
+        criarCardTransacao(transacoes[indice])
+    }
 
 
 

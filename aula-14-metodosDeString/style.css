@@ -53,7 +53,7 @@
     font-size: medium;
 }
 
-.menugrid {
+.cardsgrid {
     display: flex;
     flex-direction: row;
     padding-top: 22px;
@@ -73,7 +73,7 @@
     border-radius: 40px;
 }
 
-.moneyinimg {
+.img {
     height: 25px;
 }
 
