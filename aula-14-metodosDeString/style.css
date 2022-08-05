@@ -56,20 +56,57 @@
 .menugrid {
     display: flex;
     flex-direction: row;
-    padding-top: 15px;
+    padding-top: 22px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 0px 0px rgb(230, 230, 230);
 }
-.moneyinimg {
+
+.icone {
+    display: flex;
+    background-color: rgb(230, 230, 230);
+    justify-content: center;
+    align-items: center;
+    width: 40px;
     height: 40px;
+    border-radius: 40px;
+}
+
+.moneyinimg {
+    height: 25px;
 }
 
 .descricao {
     display: flex;
     flex-direction: column;
+    width: 280px;
+    padding-left: 10px;
+}
+
+.cardtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 .titulo {
-    display: flex;
-    flex-direction: row;
+    font-weight: 600;
+}
+
+.data {
+    color: rgb(106, 106, 106);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.subtitulo {
+    padding-top: 5px;
+    color: rgb(106, 106, 106);
+    font-weight: lighter;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 
