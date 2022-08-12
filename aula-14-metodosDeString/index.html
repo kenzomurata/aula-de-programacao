@@ -18,9 +18,12 @@
         <div class="historico">Histórico</div>
 
         <div class="caixadebusca">
-            <img src="lupa.png" class="lupaimg">
 
-            <input type="text" class="buscar" name="busca" placeholder="Buscar">
+            <button class="button">
+                <img src="lupa.png" class="lupaimg">
+            </button>
+
+            <input type="text" id="filtro" class="buscar" name="busca" placeholder="Buscar">
         </div>
 
         <div id="lista">
@@ -108,11 +111,40 @@
 
     }
 
-    for(var indice = 0; indice < transacoes.length; indice += 1){
-        criarCardTransacao(transacoes[indice])
+    function criarCard (lista){   
+        for(var indice = 0; indice < lista.length; indice += 1){
+            criarCardTransacao(lista[indice])
+        }
     }
 
+    criarCard(transacoes)
 
+    function filtrarTransacoes (){
+        var inputBuscar = window.document.getElementById("filtro").value
+        
+        var transacoesFiltradas = []
+
+        for(var indice = 0; indice < transacoes.length; indice += 1){
+            transacoes[indice.tipoDeTransacao]
+
+            var tipo = transacoes[indice].tipoDeTransacao.toLowerCase()
+            var buscandoTipo = inputBuscar.toLowerCase()
+
+            if (tipo.includes(buscandoTipo)) {
+                transacoesFiltradas.push(transacoes[indice])
+            }
+        }
+
+        var lista = document.getElementById("lista")
+        lista.innerHTML = ""
+
+        criarCard(transacoesFiltradas)
+    }
+
+    var selecao = window.document.getElementsByClassName("button")
+    var botao = selecao[0]
+
+    botao.addEventListener("click", filtrarTransacoes)
 
 </script>
 
