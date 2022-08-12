@@ -4,7 +4,7 @@
 }
 
 .purpletopbar {
-    background-color: rgb(135, 0, 197);
+    background-color: rgb(131, 10, 209);
 }
 
 .topbar {
@@ -18,7 +18,7 @@
 
 .userconteiner {
     display: flex;
-    background-color: rgb(171, 0, 214);
+    background-color: rgb(156, 3, 254);
     border-radius: 20px;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@
 }
 
 .undertopbar {
-    background-color: rgb(135, 0, 197);
+    background-color: rgb(131, 10, 209);
     height: 40px;
     padding-top: 25px;
     padding-left: 17px;
