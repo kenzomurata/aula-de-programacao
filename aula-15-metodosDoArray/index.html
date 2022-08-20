@@ -10,9 +10,9 @@
 <body>
     <div class="conteiner">
         <div class="topbar">
-            <img src="seta.png" class="setaimg">
+            <img src="imagens/seta.png" class="setaimg">
 
-            <img src="questionmark.png" class="questionmarkimg">
+            <img src="imagens/questionmark.png" class="questionmarkimg">
         </div>
 
         <div class="historico">Histórico</div>
@@ -20,7 +20,7 @@
         <div class="caixadebusca">
 
             <button class="button">
-                <img src="lupa.png" class="lupaimg">
+                <img src="imagens/lupa.png" class="lupaimg">
             </button>
 
             <input type="text" id="filtro" class="buscar" name="busca" placeholder="Buscar">
@@ -35,6 +35,7 @@
 <script>
     var transacoes = [
         {
+            id: 1,
             tipoDeTransacao: "Transferência recebida",
             nome: "Fernando Kenzo Murata",
             data: "26/07",
@@ -42,6 +43,7 @@
             icone: "moneyin.png",
         },
         {
+            id: 2,
             tipoDeTransacao: "Compra no débito",
             nome: "Farmácia Pacheco",
             data: "02/07",
@@ -49,6 +51,7 @@
             icone: "moneyout.png",
         },
         {
+            id: 3,
             tipoDeTransacao: "Transferência recebida",
             nome: "Andréia Zelada Benitez Perpétuo",
             data: "20/07",
@@ -56,6 +59,7 @@
             icone: "moneyin.png",
         },
         {
+            id: 4,
             tipoDeTransacao: "Compra no débito",
             nome: "Amil Esportes",
             data: "16/06",
@@ -63,6 +67,7 @@
             icone: "moneyout.png",
         },
         {
+            id: 5,
             tipoDeTransacao: "Compra no crédito",
             nome: "Prodesporte",
             data: "09/00",
@@ -92,7 +97,7 @@
         data.classList.add("data")
         subtitulo.classList.add("subtitulo")
 
-        img.src = transacao.icone
+        img.src = "imagens/" + transacao.icone
 
         titulo.innerText = transacao.tipoDeTransacao
         data.innerText = transacao.data
@@ -118,20 +123,20 @@
 
     }
 
-    function criarCard (lista){   
+    function criarLista (lista){   
         for(var indice = 0; indice < lista.length; indice += 1){
             criarCardTransacao(lista[indice])
         }
     }
 
-    criarCard(transacoes)
+    criarLista(transacoes)
 
     function filtrarTransacoes (){
         var inputBuscar = window.document.getElementById("filtro").value
         
         var transacoesFiltradas = []
 
-        for(var indice = 0; indice < transacoes.length; indice += 1){
+        /*for(var indice = 0; indice < transacoes.length; indice += 1){
             transacoes[indice.tipoDeTransacao]
 
             var tipo = transacoes[indice].tipoDeTransacao.toLowerCase()
@@ -140,12 +145,35 @@
             if (tipo.includes(buscandoTipo)) {
                 transacoesFiltradas.push(transacoes[indice])
             }
-        }
+        }*/
+
+        transacoes.forEach(function(transacao, indice){
+            var tipo = transacao.tipoDeTransacao.toLowerCase()
+            var buscandoTipo = inputBuscar.toLowerCase()
+
+            if (tipo.includes(buscandoTipo)) {
+                transacoesFiltradas.push(transacao)
+            }
+
+            var nome = transacao.nome.toLowerCase()
+
+            if (nome.includes(buscandoTipo)) {
+                var encontrado = transacoesFiltradas.find(function(item){
+                    if (item.id == transacao.id){
+                        return true
+                    }
+                    return false                    
+                })
+                if (encontrado == undefined){
+                    transacoesFiltradas.push(transacao)
+                }
+            }
+        })
 
         var lista = document.getElementById("lista")
         lista.innerHTML = ""
 
-        criarCard(transacoesFiltradas)
+        criarLista(transacoesFiltradas)
     }
 
     var selecao = window.document.getElementsByClassName("button")
