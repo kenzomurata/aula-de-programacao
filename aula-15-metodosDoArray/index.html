@@ -39,7 +39,7 @@
             tipoDeTransacao: "Transferência recebida",
             nome: "Fernando Kenzo Murata",
             data: "26/07",
-            valor: "R$12,99",
+            valor: 12.99,
             icone: "moneyin.png",
         },
         {
@@ -47,7 +47,7 @@
             tipoDeTransacao: "Compra no débito",
             nome: "Farmácia Pacheco",
             data: "02/07",
-            valor: "R$499,99",
+            valor: 499.99,
             icone: "moneyout.png",
         },
         {
@@ -55,7 +55,7 @@
             tipoDeTransacao: "Transferência recebida",
             nome: "Andréia Zelada Benitez Perpétuo",
             data: "20/07",
-            valor: "R$122,99",
+            valor: 122.99,
             icone: "moneyin.png",
         },
         {
@@ -63,7 +63,7 @@
             tipoDeTransacao: "Compra no débito",
             nome: "Amil Esportes",
             data: "16/06",
-            valor: "R$68,99",
+            valor: 68.99,
             icone: "moneyout.png",
         },
         {
@@ -71,7 +71,7 @@
             tipoDeTransacao: "Compra no crédito",
             nome: "Prodesporte",
             data: "09/00",
-            valor: "R$80,00",
+            valor: 80.00,
             icone: "moneyout.png",
         }
     ]
@@ -103,7 +103,7 @@
         data.innerText = transacao.data
 
         nome.innerText = transacao.nome
-        valor.innerText = transacao.valor
+        valor.innerText = transacao.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
         subtitulo.appendChild(nome)
         subtitulo.appendChild(valor)
@@ -140,33 +140,32 @@
             transacoes[indice.tipoDeTransacao]
 
             var tipo = transacoes[indice].tipoDeTransacao.toLowerCase()
-            var buscandoTipo = inputBuscar.toLowerCase()
+            var busca = inputBuscar.toLowerCase()
 
-            if (tipo.includes(buscandoTipo)) {
+            if (tipo.includes(busca)) {
                 transacoesFiltradas.push(transacoes[indice])
             }
         }*/
 
         transacoes.forEach(function(transacao, indice){
             var tipo = transacao.tipoDeTransacao.toLowerCase()
-            var buscandoTipo = inputBuscar.toLowerCase()
+            var busca = inputBuscar.toLowerCase()
 
-            if (tipo.includes(buscandoTipo)) {
+            if (tipo.includes(busca)) {
                 transacoesFiltradas.push(transacao)
             }
 
             var nome = transacao.nome.toLowerCase()
 
-            if (nome.includes(buscandoTipo)) {
-                var encontrado = transacoesFiltradas.find(function(item){
-                    if (item.id == transacao.id){
-                        return true
-                    }
-                    return false                    
-                })
-                if (encontrado == undefined){
-                    transacoesFiltradas.push(transacao)
-                }
+            if (nome.includes(busca) && !existeNaLista(transacao, transacoesFiltradas)) {
+                transacoesFiltradas.push(transacao)
+            }
+
+            var valorString = transacao.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+            valorString.toLocaleLowerCase()
+
+            if (valorString.includes(busca) && !existeNaLista(transacao, transacoesFiltradas)) {
+                transacoesFiltradas.push(transacao)
             }
         })
 
@@ -180,6 +179,31 @@
     var botao = selecao[0]
 
     botao.addEventListener("click", filtrarTransacoes)
+
+    
+    function existeNaLista (item, lista){
+        var encontrado = lista.find(function(itemLista){
+            if (item.id == itemLista.id){
+                return true
+            }
+            return false                    
+        })
+
+        if(encontrado == undefined) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+
 
 </script>
 
