@@ -31,8 +31,8 @@
         </div>
     </div>
 
-
 <script>
+    
     var transacoes = [
         {
             id: 1,
@@ -61,7 +61,7 @@
         {
             id: 4,
             tipoDeTransacao: "Compra no débito",
-            nome: "Amil Esportes",
+            nome: "Andréia Zelada Benitez Perpétuo",
             data: "16/06",
             valor: 68.99,
             icone: "moneyout.png",
@@ -69,7 +69,7 @@
         {
             id: 5,
             tipoDeTransacao: "Compra no crédito",
-            nome: "Prodesporte",
+            nome: "Prodesporte Perpétuo",
             data: "09/00",
             valor: 80.00,
             icone: "moneyout.png",
@@ -131,6 +131,23 @@
 
     criarLista(transacoes)
 
+    function tirarAcentos(str){
+        str = str.replaceAll(/[ÀÁÂÃÄÅ]/g,"A");
+        str = str.replaceAll(/[àáâãäå]/g,"a");
+        str = str.replaceAll(/[ÈÉÊË]/g,"E");
+        str = str.replaceAll(/[èéêë]/g,"e");
+        str = str.replaceAll(/[Ç]/g,"C");
+        str = str.replaceAll(/[ç]/g,"c");
+        str = str.replaceAll(/[ÍÌÏÎ]/g,"I")
+        str = str.replaceAll(/[íìïî]/g,"i")
+        str = str.replaceAll(/[ÒÓÔÖÕ]/g,"O")
+        str = str.replaceAll(/[óòõöô]/g,"o")
+        str = str.replaceAll(/[ÙÚÛÜ]/g,"U")
+        str = str.replaceAll(/[úùüû]/g,"u")
+
+        return str; 
+    }
+
     function filtrarTransacoes (){
         var inputBuscar = window.document.getElementById("filtro").value
         
@@ -147,24 +164,36 @@
             }
         }*/
 
-        transacoes.forEach(function(transacao, indice){
-            var tipo = transacao.tipoDeTransacao.toLowerCase()
-            var busca = inputBuscar.toLowerCase()
+        transacoes.forEach(function(transacao){
+            var jaInseridoEmFiltrados = false
 
-            if (tipo.includes(busca)) {
-                transacoesFiltradas.push(transacao)
-            }
+            var busca = inputBuscar.toLowerCase()
+            busca = tirarAcentos(busca)
+
+            var tipo = transacao.tipoDeTransacao.toLowerCase()
+            tipo = tirarAcentos(tipo)
 
             var nome = transacao.nome.toLowerCase()
-
-            if (nome.includes(busca) && !existeNaLista(transacao, transacoesFiltradas)) {
-                transacoesFiltradas.push(transacao)
-            }
+            nome = tirarAcentos(nome)
 
             var valorString = transacao.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
             valorString.toLocaleLowerCase()
 
-            if (valorString.includes(busca) && !existeNaLista(transacao, transacoesFiltradas)) {
+            console.log("busca", busca)
+            console.log("tipo", tipo)
+            console.log("nome", nome)
+
+            if (tipo.includes(busca)) {
+                transacoesFiltradas.push(transacao)
+                jaInseridoEmFiltrados = true
+            }
+
+            if (nome.includes(busca) && !jaInseridoEmFiltrados) {
+                transacoesFiltradas.push(transacao)
+                jaInseridoEmFiltrados = true
+            }
+
+            if (valorString.includes(busca) && !jaInseridoEmFiltrados) {
                 transacoesFiltradas.push(transacao)
             }
         })
@@ -180,7 +209,7 @@
 
     botao.addEventListener("click", filtrarTransacoes)
 
-    
+    /*
     function existeNaLista (item, lista){
         var encontrado = lista.find(function(itemLista){
             if (item.id == itemLista.id){
@@ -195,15 +224,7 @@
 
         return true;
     }
-
-
-
-
-
-
-
-
-
+    */
 
 </script>
 
