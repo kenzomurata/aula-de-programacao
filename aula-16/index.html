@@ -50,6 +50,68 @@
 
     <script>
 
+        function verificarVencedor (m11, m12, m13, m21, m22, m23, m31, m32, m33){
+            if (m11 == m12 && m12 == m13){
+                return m11
+            }
+            if (m21 == m22 && m22 == m23){
+                return m21
+            }
+            if (m31 == m32 && m32 == m33){
+                return m31
+            }
+            if (m11 == m21 && m21 == m31){
+                return
+            }
+            if (m12 == m22 && m22 == m32){
+                return m12
+            }
+            if (m13 == m23 && m23 == m33){
+                return m13
+            }
+            if (m11 == m22 && m22 == m33){
+                return m11
+            }
+            if (m13 == m22 && m22 == m31){
+                return m13
+            }            
+        }
+
+        function recebendoValores (){
+            var m11 = window.document.getElementById("casa1.1").value
+            var m12 = window.document.getElementById("casa1.2").value
+            var m13 = window.document.getElementById("casa1.3").value
+            var m21 = window.document.getElementById("casa1.4").value
+            var m22 = window.document.getElementById("casa1.5").value
+            var m23 = window.document.getElementById("casa1.6").value
+            var m31 = window.document.getElementById("casa1.7").value
+            var m32 = window.document.getElementById("casa1.8").value
+            var m33 = window.document.getElementById("casa1.9").value
+
+            var resultado = verificarVencedor(m11, m12, m13, m21, m22, m23, m31, m32, m33)
+
+            if (resultado == ""){
+                return window.alert("Não há vencedor")
+            }
+            if (resultado == undefined){
+                return window.alert("Velha")
+            }
+
+            window.alert(resultado + " é o vencedor")
+        }
+
+        var simbolo;
+        while(simbolo != "x" && simbolo != "o"){
+           simbolo = window.prompt("Você quer x ou o?")
+           console.log(simbolo)
+        }       
+
+        var nick = window.prompt("Jogador 1, qual é o seu nick?")
+        var nick2 = window.prompt("Jogador 2, qual é o seu nick?")
+
+        var botao = window.document.getElementById("botao")
+        botao.addEventListener("click", recebendoValores)
+
     </script>
 
 </body>
