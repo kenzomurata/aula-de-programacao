@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="conteiner">
+
+        <div class="title">
+            Hangman
+        </div>
+
+        <br>
+        
+        <img src="ingame.png" class="img">
+        <div>
+
+        </div>
+
+    </div>
+
+    <script>        
+        
+        var palavra = undefined;
+
+        while (palavra == undefined){
+            palavra = window.prompt("Digite a palavra desejada")
+        }
+        if (palavra != undefined){
+            var letrasSeparadas = palavra.split("")
+        }
+
+        console.log(letrasSeparadas)
+
+        /*
+        1- guardar cada letra de forma separada
+        2- deixar cada letra "invisivel"
+        3- criar os espaços para cada letra da palavra
+        4- digitar a letra certa a revela, digitar errado revela uma parte do boneco
+        5- esconder o boneco na forca e revela-lo a cada erro
+        */
+       
+    </script>
+
+</body>
+
+</html>
