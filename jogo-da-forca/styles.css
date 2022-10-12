@@ -12,13 +12,43 @@
     color: rgb(174, 0, 255);    
 }
 
+.conteinerJogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#conteinerPalavra {
+    display: flex;
+    flex-direction: row;
+}
+
 .img {
     height: 350px;
 }
 
+.caixaLetra {
+    display: flex;
+    border: solid 1px;
+    height: 60px;
+    width: 50px;
+    margin-right: 2px;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-family: cursive;
 
+}
 
+.caixaEspaco {
+    height: 60px;
+    width: 50px;
+    margin-right: 4px;
+}
 
+.hidden {
+    visibility: hidden;
+}
 
 
 

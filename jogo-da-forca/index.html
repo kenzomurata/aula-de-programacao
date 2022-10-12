@@ -16,15 +16,77 @@
         </div>
 
         <br>
-        
-        <img src="ingame.png" class="img">
-        <div>
+        <br>
+        <br>
+        <br>
+
+        <div class="conteinerJogo">
+
+            <div id="conteinerPalavra">
+
+                
+                
+                
+            </div>    
+            <img src="ingame.png" class="img">
+
 
         </div>
 
     </div>
 
-    <script>        
+    <script>    
+    
+        function criarCaixaLetra(letra){
+
+            var caixa =  window.document.createElement("div")
+            
+            caixa.classList.add("caixaLetra")
+
+            var caixaLetra = window.document.createElement("div")
+
+            caixaLetra.classList.add("hidden")
+            
+            caixaLetra.innerHTML = letra
+
+            caixa.appendChild(caixaLetra)
+
+            var conteinerPalavra = document.getElementById("conteinerPalavra")
+            
+            conteinerPalavra.appendChild(caixa)
+
+        }
+
+        function criarCaixaEspaco(espaco){
+
+            var espaco = window.document.createElement("div")
+
+            espaco.classList.add("caixaEspaco")
+
+            conteinerPalavra.appendChild(espaco)
+
+        }
+
+        function apresentarPalavra (letrasSeparadas){   
+            for(var indice = 0; indice < letrasSeparadas.length; indice += 1){
+
+                var letra = letrasSeparadas[indice]
+
+                if (letra != " "){
+                    var conteinerPalavra = document.getElementById("conteinerPalavra")
+                    //conteinerPalavra.innerHTML = ""
+
+                    criarCaixaLetra(letra)
+                }
+                if (letra == " "){
+                    criarCaixaEspaco(letra)
+                }
+
+            }
+        }
+
+
+
         
         var palavra = undefined;
 
@@ -32,10 +94,15 @@
             palavra = window.prompt("Digite a palavra desejada")
         }
         if (palavra != undefined){
-            var letrasSeparadas = palavra.split("")
+            
+            palavra.split("")
+
+            apresentarPalavra(palavra)
         }
 
-        console.log(letrasSeparadas)
+        
+
+
 
         /*
         1- guardar cada letra de forma separada
