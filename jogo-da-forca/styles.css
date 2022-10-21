@@ -15,7 +15,7 @@
 .conteinerJogo {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #conteinerPalavra {
@@ -50,5 +50,28 @@
     visibility: hidden;
 }
 
+.chute {
+    height: 35px;
+    width: 22px;
+    font-size: 35px;
+}
 
+.conteinerInput {
+    display: flex;
+    justify-content: center;    
+}
 
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 150px;
+
+}
+
+#button {
+    height: 25px;
+    width: 80px;
+    justify-content: center;
+}
