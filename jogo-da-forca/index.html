@@ -70,6 +70,8 @@
 
         }
 
+
+        
         function criarCaixaEspaco(espaco){
 
             var espaco = window.document.createElement("div")
@@ -80,7 +82,12 @@
 
         }
 
-        function apresentarPalavra (letrasSeparadas){   
+
+
+        function apresentarPalavra (palavra){  
+            
+            var letrasSeparadas = palavra.split("")
+
             for(var indice = 0; indice < letrasSeparadas.length; indice += 1){
 
                 var letra = letrasSeparadas[indice]
@@ -98,24 +105,64 @@
             }
         }
 
-        
-
-
 
         
-        var palavra = undefined;
+        var palavra = "";
 
-        while (palavra == undefined){
+        while (palavra == ""){
             palavra = window.prompt("Digite a palavra desejada")
         }
-        if (palavra != undefined){
-            
-            palavra.split("")
+        
+        apresentarPalavra(palavra)
 
-            apresentarPalavra(palavra)
+
+
+        function posicoesLetrasNaPalavra(palavra, letra){
+
+            var posicoesDaLetra = []
+
+            for(var indice = 0; indice < palavra.length; indice += 1){
+                if (palavra.charAt(indice) == letra){
+
+                    posicoesDaLetra.push(indice)
+
+                }
+            }
+            return posicoesDaLetra
+
         }
 
-        
+
+
+        function revelarLetra(letra){
+
+            var caixasLetra = window.document.getElementsByClassName("caixaLetra")
+
+            for(var indice = 0; indice < caixasLetra.length; indice += 1){
+                if(caixasLetra[indice].children[0].innerHTML == letra){
+                    caixasLetra[indice].children[0].classList.remove("hidden")
+                }
+            }
+
+        }
+
+
+
+        function aoClicar(){
+            
+            var letraInput = window.document.getElementById("filtro").value
+            
+            revelarLetra(letraInput)
+
+        }
+
+
+
+        var botao = window.document.getElementById("button")
+
+        botao.addEventListener("click", aoClicar)
+
+
         /*
         1- guardar cada letra de forma separada
         2- deixar cada letra "invisivel"
