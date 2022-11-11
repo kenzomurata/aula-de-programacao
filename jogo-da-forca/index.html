@@ -28,7 +28,8 @@
                 
                 
             </div>    
-            <img src="ingame.png" class="img">
+            <img src="ingame-inicio.png" class="img">
+
 
 
         </div>
@@ -133,26 +134,76 @@
         }
 
 
+        var erros = 0
 
         function revelarLetra(letra){
+            
+            var vezesReveladas = 0
 
             var caixasLetra = window.document.getElementsByClassName("caixaLetra")
 
             for(var indice = 0; indice < caixasLetra.length; indice += 1){
                 if(caixasLetra[indice].children[0].innerHTML == letra){
                     caixasLetra[indice].children[0].classList.remove("hidden")
+                    vezesReveladas += 1
                 }
             }
-
+            return vezesReveladas
         }
 
 
+
+        function executarJogada(letra){
+
+            var vezesReveladas = revelarLetra(letra)
+            
+            if(vezesReveladas == 0){
+                erros += 1
+                imagemDoErro(erros)
+            }
+            
+        }
+
+
+
+        function imagemDoErro(erros){
+
+            var imagens = window.document.getElementsByClassName("img")
+
+            switch(erros){
+                case 1: {
+                    imagens[0].src="ingame-cabeca.png"
+                    break
+                }
+                case 2: {
+                    imagens[0].src="ingame-corpo.png"
+                    break
+                }
+                case 3: {
+                    imagens[0].src="ingame-1braco.png"
+                    break
+                }
+                case 4: {
+                    imagens[0].src="ingame-2bracos.png"
+                    break
+                }
+                case 5: {
+                    imagens[0].src="ingame-1perna.png"
+                    break
+                }
+                case 6: {
+                    imagens[0].src="ingame-completo.png"
+                    break
+                }
+                default: {}
+            }
+        }
 
         function aoClicar(){
             
             var letraInput = window.document.getElementById("filtro").value
             
-            revelarLetra(letraInput)
+            executarJogada(letraInput)
 
         }
 
