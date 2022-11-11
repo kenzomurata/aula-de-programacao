@@ -56,13 +56,13 @@
             
             caixa.classList.add("caixaLetra")
 
-            var caixaLetra = window.document.createElement("div")
+            var caixaHidden = window.document.createElement("div")
 
-            caixaLetra.classList.add("hidden")
+            caixaHidden.classList.add("hidden")
             
-            caixaLetra.innerHTML = letra
+            caixaHidden.innerHTML = letra
 
-            caixa.appendChild(caixaLetra)
+            caixa.appendChild(caixaHidden)
 
             var conteinerPalavra = document.getElementById("conteinerPalavra")
             
@@ -140,7 +140,9 @@
 
             for(var indice = 0; indice < caixasLetra.length; indice += 1){
                 if(caixasLetra[indice].children[0].innerHTML == letra){
+
                     caixasLetra[indice].children[0].classList.remove("hidden")
+
                 }
             }
 
