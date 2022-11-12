@@ -83,7 +83,7 @@
 
         }
 
-
+        var quantidadeDeLetras = 0
 
         function apresentarPalavra (palavra){  
             
@@ -96,6 +96,7 @@
                 if (letra != " "){
                     var conteinerPalavra = document.getElementById("conteinerPalavra")
                     //conteinerPalavra.innerHTML = ""
+                    quantidadeDeLetras += 1
 
                     criarCaixaLetra(letra)
                 }
@@ -135,24 +136,26 @@
 
 
         var erros = 0
+        var totalLetrasReveladas = 0
 
         function revelarLetra(letra){
-            
+
             var vezesReveladas = 0
+            
 
             var caixasLetra = window.document.getElementsByClassName("caixaLetra")
 
             for(var indice = 0; indice < caixasLetra.length; indice += 1){
                 if(caixasLetra[indice].children[0].innerHTML == letra){
-
                     caixasLetra[indice].children[0].classList.remove("hidden")
                     vezesReveladas += 1
+                    totalLetrasReveladas +=1
                 }
             }
             return vezesReveladas
         }
 
-
+        
 
         function executarJogada(letra){
 
@@ -162,10 +165,14 @@
                 erros += 1
                 imagemDoErro(erros)
             }
-            
+            if(quantidadeDeLetras == totalLetrasReveladas){
+                window.alert("Você venceu")
+            }
+            if(erros == 6){
+                window.alert("Game Over")
+            }        
         }
-
-
+        
 
         function imagemDoErro(erros){
 
@@ -200,6 +207,8 @@
             }
         }
 
+
+
         function aoClicar(){
             
             var letraInput = window.document.getElementById("filtro").value
@@ -216,11 +225,10 @@
 
 
         /*
-        1- guardar cada letra de forma separada
-        2- deixar cada letra "invisivel"
-        3- criar os espaços para cada letra da palavra
-        4- digitar a letra certa a revela, digitar errado revela uma parte do boneco
-        5- esconder o boneco na forca e revela-lo a cada erro
+        1- apagar letra do input apos conferir
+        2- mostrar letras erradas
+        3- mensagem que ganhou ou perdeu aparecer apos mostras a ultima letra ou ultima imagem
+        4- 
         */
        
     </script>
