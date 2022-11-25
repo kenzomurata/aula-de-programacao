@@ -39,11 +39,17 @@
         <div class="conteinerInput">
 
             <div class="input">
-                
+
                 <input type="text" id="filtro" class="chute" name="chute" placeholder="?">
                 
                 <button id="button">Conferir</button>
                 
+            </div>
+
+            <div class="letraErradas">
+
+
+
             </div>
             
         </div>
@@ -136,6 +142,7 @@
 
 
         var erros = 0
+
         var totalLetrasReveladas = 0
 
         function revelarLetra(letra){
@@ -160,25 +167,37 @@
         function executarJogada(letra){
 
             var vezesReveladas = revelarLetra(letra)
+
+            var inputValue = window.document.getElementById("filtro")
             
             if(vezesReveladas == 0){
                 erros += 1
                 imagemDoErro(erros)
+
             }
             if(quantidadeDeLetras == totalLetrasReveladas){
                 window.alert("Você venceu")
             }
             if(erros == 6){
                 window.alert("Game Over")
-            }        
+            }
+
+
+            inputValue.value = ""
         }
         
+        function letrasErradas(letra){
+
+
+
+
+        }
 
         function imagemDoErro(erros){
 
             var imagens = window.document.getElementsByClassName("img")
 
-            switch(erros){
+            switch(erros){ //usar switch não é o ideal
                 case 1: {
                     imagens[0].src="ingame-cabeca.png"
                     break
@@ -223,9 +242,11 @@
 
         botao.addEventListener("click", aoClicar)
 
+        
+
 
         /*
-        1- apagar letra do input apos conferir
+        1- apagar letra do input apos conferir [ok]
         2- mostrar letras erradas
         3- mensagem que ganhou ou perdeu aparecer apos mostras a ultima letra ou ultima imagem
         4- melhorar caixa de chute
