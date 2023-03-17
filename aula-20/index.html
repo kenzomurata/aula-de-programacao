@@ -11,24 +11,90 @@
 
 
     <script>
+
         var player = {
             nome:"",
-            armas:[],
+            equipamentos:[],
             item:"",
         }
         
-        while(player.nome == ""){
-            player.nome = window.prompt("Nome do aventureiro:")
-        }
         
-        var arma1
-        var arma2
-        while(player.armas.length < 2){
-            
+        function weapons (equipA, equipB){
+
+            var equips = []
+
+            var equip1 = "Espada"
+            var equip2 = "Arco e Flecha"
+            var equip3 = "Armadura"
+            var equip4 = "Lança"
+
+            if(equipA == 1 && equipB == 2 || equipA == 2 && equipB == 1){
+                equips.push(equip1)
+                equips.push(equip2)
+                return equips
+            }
+            if(equipA == 1 && equipB == 3 || equipA == 3 && equipB == 1){
+                equips.push(equip1)
+                equips.push(equip3)
+                return equips
+            }
+            if(equipA == 1 && equipB == 4 || equipA == 4 && equipB == 1){
+                equips.push(equip1)
+                equips.push(equip4)
+                return equips
+            }
+            if(equipA == 2 && equipB == 3 || equipA == 3 && equipB == 2){
+                equips.push(equip2)
+                equips.push(equip3)
+                return equips
+            }
+            if(equipA == 2 && equipB == 4 || equipA == 4 && equipB == 2){
+                equips.push(equip2)
+                equips.push(equip4)
+                return equips
+            }
+            if(equipA == 3 && equipB == 4 || equipA == 4 && equipB == 3){
+                equips.push(equip3)
+                equips.push(equip4)
+                return equips
+            }
+
+            return equips
+
         }
 
+        
+        function escolherArmas (equipamentosPlayer){
+            
+            var equipamentosPlayer = []
 
+            var primeiroEquipamento = ""
+
+            var segundoEquipamento = ""
+            
+            while(primeiroEquipamento == ""){
+                primeiroEquipamento = window.prompt("Escolha o número do seu 1º equipamento:\n1- Espada\n2- Arco e Flecha\n3- Armadura\n4- Lança")
+            }
+            
+            while(segundoEquipamento == ""){
+                segundoEquipamento = window.prompt("Agora, o número do seu 2º equipamento:\n1- Espada\n2- Arco e Flecha\n3- Armadura\n4- Lança")
+            }
+
+            equipamentosPlayer = weapons(primeiroEquipamento, segundoEquipamento)   
+
+            return equipamentosPlayer
+
+        }
+
+        while(player.nome == ""){
+            player.nome = window.prompt("Escolha seu nome:")
+        }
+
+        player.equipamentos = escolherArmas()
+        
         console.log(player)
+
+
     </script>
     
 </body>
