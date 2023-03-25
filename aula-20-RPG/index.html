@@ -8,15 +8,24 @@
   </head>
   <body>
     <script>
-      var MSG_EQUIPAMENTO1 = "Escolha o número do seu 1º equipamento:\n";
-      var MSG_EQUIPAMENTO2 = "Agora, o número do seu 2º equipamento:\n";
+      var MSG_EQUIPAMENTO1 = function (ordem) {
+        return `Escolha o número do seu ${ordem}° equipamento:\n`;
+      };
 
-      var equipments = [
+      var equipamentosDisponiveis = [
         { id: 1, nome: "Espada" },
         { id: 2, nome: "Arco e Flecha" },
         { id: 3, nome: "Armadura" },
         { id: 4, nome: "Lança" },
       ];
+
+      function removerEquipamento(escolha) {
+        equipamentosDisponiveis = equipamentosDisponiveis.filter(function (
+          equipamento
+        ) {
+          return escolha != equipamento.id;
+        });
+      }
 
       function montarFrase(fraseInicial, equipamentos) {
         var frase = fraseInicial;
@@ -34,63 +43,36 @@
         item: "",
       };
 
-      function escolherArmas(equipamentosPlayer) {
-        var equipamentosPlayer = [];
-
-        while (equipamentosPlayer.length == 0) {
+      function escolherArmas(player) {
+        while (player.equipamentos.length < 2) {
           var escolha = window.prompt(
-            montarFrase(MSG_EQUIPAMENTO1, equipments)
+            montarFrase(
+              MSG_EQUIPAMENTO1(player.equipamentos.length + 1),
+              equipamentosDisponiveis
+            )
           );
-
-          var ehEquipamentoValido = equipments.some(function (equipamento) {
+          var ehEquipamentoValido = equipamentosDisponiveis.some(function (
+            equipamento
+          ) {
             return equipamento.id == escolha;
           });
 
           if (ehEquipamentoValido) {
-            var equipEscolhido = equipments.find(function (equip) {
+            var equipEscolhido = equipamentosDisponiveis.find(function (equip) {
               return escolha == equip.id;
             });
-            equipamentosPlayer.push(equipEscolhido);
+
+            player.equipamentos.push(equipEscolhido);
+            removerEquipamento(escolha);
           }
         }
-
-        while (equipamentosPlayer.length == 1) {
-          var escolha2 = window.prompt(
-            montarFrase(MSG_EQUIPAMENTO2, equipments)
-          );
-
-          var ehEquipamentoValido2 = equipments.some(function (equipamento) {
-            return equipamento.id == escolha2;
-          });
-
-          if (ehEquipamentoValido2) {
-            var jaPossui = equipamentosPlayer.some(function (equipamento) {
-              return equipamento.id == escolha2;
-            });
-
-            if (jaPossui) {
-              window.alert(
-                "Equipamentos inválidos. Por favor, escolha novamente."
-              );
-              equipamentosPlayer = [];
-            } else {
-              var equipEscolhido2 = equipments.find(function (equip) {
-                return escolha2 == equip.id;
-              });
-              equipamentosPlayer.push(equipEscolhido2);
-            }
-          }
-        }
-        return equipamentosPlayer;
       }
 
       while (player.nome == "") {
         player.nome = window.prompt("Escolha seu nome:");
       }
 
-      while (player.equipamentos.length < 2) {
-        player.equipamentos = escolherArmas();
-      }
+      escolherArmas(player);
 
       console.log(player);
     </script>
