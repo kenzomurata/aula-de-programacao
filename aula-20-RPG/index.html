@@ -11,7 +11,7 @@
       var player = {
         nome: "",
         equipamentos: [],
-        item: "",
+        item: [],
       };
 
       var equipamentosDisponiveis = [
@@ -21,9 +21,14 @@
         { id: 4, nome: "Lança" },
       ];
 
-      var historia1 = function (nome) {
-        return `${nome} começa sua jornada em direção a "Terra Prometida", mas para chegar lá precisa atravessar o "Deserto dos Mortos". Chegando no deserto, ${nome} se depara com dois caminhos..."`;
+      var msgHistoria1 = function (nome) {
+        return `${nome} começa sua jornada em direção a "Terra Prometida", mas para chegar lá precisa atravessar o "Deserto dos Mortos". Chegando no deserto, ${nome} se depara com dois caminhos...\n`;
       };
+
+      var caminhosHistoria1 = [
+        { id: 1, caminho: "Templo Antigo, emandando uma intensa magia" },
+        { id: 2, caminho: "Caverna Subterrânea, emanando uma energia ardente" },
+      ];
 
       var MSG_EQUIPAMENTO1 = function (ordem) {
         return `Escolha o número do seu ${ordem}° equipamento:\n`;
@@ -72,6 +77,16 @@
         }
       }
 
+      function montarHistoria1(fraseHistoria, caminhos) {
+        var frase = fraseHistoria;
+        for (var indice = 0; indice < caminhos.length; indice += 1) {
+          frase = frase.concat(
+            caminhos[indice].id + "- " + caminhos[indice].caminho + "\n"
+          );
+        }
+        return frase;
+      }
+
       while (player.nome == "") {
         player.nome = window.prompt("Escolha seu nome:");
       }
@@ -81,7 +96,9 @@
       console.log(player);
 
       while (player.equipamentos.length == 2) {
-        window.prompt(historia1(player.nome));
+        var caminhoEscolhido1 = window.prompt(
+          montarHistoria1(msgHistoria1(player.nome), caminhosHistoria1)
+        );
       }
     </script>
   </body>
