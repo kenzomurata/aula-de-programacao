@@ -8,8 +8,10 @@
   </head>
   <body>
     <script>
-      var MSG_EQUIPAMENTO1 = function (ordem) {
-        return `Escolha o número do seu ${ordem}° equipamento:\n`;
+      var player = {
+        nome: "",
+        equipamentos: [],
+        item: "",
       };
 
       var equipamentosDisponiveis = [
@@ -18,6 +20,14 @@
         { id: 3, nome: "Armadura" },
         { id: 4, nome: "Lança" },
       ];
+
+      var historia1 = function (nome) {
+        return `${nome} começa sua jornada em direção a "Terra Prometida", mas para chegar lá precisa atravessar o "Deserto dos Mortos". Chegando no deserto, ${nome} se depara com dois caminhos..."`;
+      };
+
+      var MSG_EQUIPAMENTO1 = function (ordem) {
+        return `Escolha o número do seu ${ordem}° equipamento:\n`;
+      };
 
       function removerEquipamento(escolha) {
         equipamentosDisponiveis = equipamentosDisponiveis.filter(function (
@@ -36,12 +46,6 @@
         }
         return frase;
       }
-
-      var player = {
-        nome: "",
-        equipamentos: [],
-        item: "",
-      };
 
       function escolherArmas(player) {
         while (player.equipamentos.length < 2) {
@@ -75,6 +79,10 @@
       escolherArmas(player);
 
       console.log(player);
+
+      while (player.equipamentos.length == 2) {
+        window.prompt(historia1(player.nome));
+      }
     </script>
   </body>
 </html>
