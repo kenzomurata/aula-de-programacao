@@ -21,9 +21,58 @@
         { id: 4, nome: "Lança" },
       ];
 
-      var msgHistoria1 = function (nome) {
-        return `${nome} começa sua jornada em direção a "Terra Prometida", mas para chegar lá precisa atravessar o "Deserto dos Mortos". Chegando no deserto, ${nome} se depara com dois caminhos...\n`;
+      var pontoFinal = {
+        montarHistoria: function (nome) {
+          return `${nome}! Você chegou ao Fim!`;
+        },
+        nome: "Terra Prometida",
       };
+
+      var pontoD = {
+        nome: "Encurralado por mortos-vivos",
+        montarHistoria: function (nome) {
+          var historia = `${nome} sai do ponto B/C mas é surpreendido por uma manada de mortos-vivos, encontrando-se sem saída a não ser lutar...`;
+          return historia;
+        },
+        escolhas: [pontoFinal],
+      };
+
+      var pontoB = {
+        nome: "Templo Antigo, emandando uma intensa magia",
+        montarHistoria: function (nome) {
+          var historia = `Dentro do Templo Antigo ${nome} se depara com um Amuleto de Transmutação, onde logo o pega e guarda em seu invetário`;
+          return historia;
+        },
+        escolhas: [pontoD],
+        item: "Amuleto de Transmutação",
+      };
+
+      var pontoC = {
+        nome: "Caverna Subterrânea, emanando uma energia ardente",
+        montarHistoria: function (nome) {
+          var historia = `Dentro da Carverna Subterrânea ${nome} se depara com um Amuleto Lança-Chamas, onde logo o pega e guarda em seu invetário`;
+          return historia;
+        },
+        escolhas: [pontoD],
+        item: "Amuleto Lança-Chamas",
+      };
+
+      var pontoA = {
+        montarHistoria: function (nome) {
+          var historia = `${nome} começa sua jornada em direção a "Terra Prometida", mas para chegar lá precisa atravessar o "Deserto dos Mortos". Chegando no deserto, ${nome} se depara com dois caminhos...`;
+          for (var indice = 0; indice < this.escolhas.length; indice += 1) {
+            historia = historia.concat(
+              `\n ${indice + 1}` + "- " + this.escolhas[indice].nome
+            );
+          }
+          return historia;
+        },
+        escolhas: [pontoB, pontoC],
+      };
+
+      /* var pontoD = {
+        historia: msgHistoria2,
+      }; */
 
       var caminhosHistoria1 = [
         { id: 1, caminho: "Templo Antigo, emandando uma intensa magia" },
@@ -95,11 +144,23 @@
 
       console.log(player);
 
-      while (player.equipamentos.length == 2) {
-        var caminhoEscolhido1 = window.prompt(
-          montarHistoria1(msgHistoria1(player.nome), caminhosHistoria1)
-        );
+      var pontoAtual = pontoA;
+
+      while (pontoAtual.nome != pontoFinal.nome) {
+        if (pontoAtual.escolhas.length == 1) {
+          alert(pontoAtual.montarHistoria(player.nome));
+          pontoAtual = pontoAtual.escolhas[0];
+        } else {
+          var caminhoEscolhido = window.prompt(
+            //montarHistoria1(msgHistoria1(player.nome), caminhosHistoria1)
+            pontoAtual.montarHistoria(player.nome)
+          );
+          pontoAtual = pontoAtual.escolhas[caminhoEscolhido - 1];
+        }
+        console.log(pontoAtual);
       }
+
+      alert(pontoFinal.montarHistoria(player.nome));
     </script>
   </body>
 </html>
