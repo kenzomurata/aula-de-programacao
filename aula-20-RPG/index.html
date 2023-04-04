@@ -11,7 +11,6 @@
       var player = {
         nome: "",
         equipamentos: [],
-        item: [],
       };
 
       var equipamentosDisponiveis = [
@@ -21,40 +20,69 @@
         { id: 4, nome: "Lança" },
       ];
 
+      /* var pontoExtra = {};
+
+      var pontoCreditos = {}; */
+
       var pontoFinal = {
-        montarHistoria: function (nome) {
-          return `${nome}! Você chegou ao Fim!`;
-        },
         nome: "Terra Prometida",
+        montarHistoria: function (nome) {
+          return `${nome} finalmente atravessa o "Deserto dos Mortos" e encontra uma civilização educada e simpática que logo o acolhem para ajudar a tratar de sua feridas. conclui sua jornada, chegando finalmente na "Terra Prometida"!! !`;
+        },
+        //escolhas: [pontoExtra, pontoCreditos],
+        nomePontoSinuca: "Esquerda",
+      };
+
+      var pontoDerrota = {
+        montarHistoria: function (nome) {
+          return `${nome} desce pelo buraco, mas se depara com mais mortos vivos que logo percebem sua presença... ainda tenta resistir com suas últimas forças, porém sucumbe aos desafio do "Deserto dos Mortos"`;
+        },
+        nomePontoSinuca: "Direita",
+      };
+
+      var pontoSinuca = {
+        nome: "Só o pó da rabiola",
+        montarHistoria: function (nome) {
+          var historia = `Após muitos golpes trocados, ${nome} começa a apresentar sinais de cansaço e fadiga. Faltam poucos inimigos mas ${nome} já não aguenta mais, quando de repente avista dois buracos no meio da pedra...`;
+          for (var indice = 0; indice < this.escolhas.length; indice += 1) {
+            historia = historia.concat(
+              `\n ${indice + 1}` + "- " + this.escolhas[indice].nomePontoSinuca
+            );
+          }
+          return historia;
+        },
+        escolhas: [pontoDerrota, pontoFinal],
       };
 
       var pontoD = {
         nome: "Encurralado por mortos-vivos",
         montarHistoria: function (nome) {
-          var historia = `${nome} sai do ponto B/C mas é surpreendido por uma manada de mortos-vivos, encontrando-se sem saída a não ser lutar...`;
+          var historia = `${nome} sai do ponto B/C mas é surpreendido por uma manada de mortos-vivos. Não vê outra saída a não ser lutar...`;
           return historia;
         },
-        escolhas: [pontoFinal],
-      };
-
-      var pontoB = {
-        nome: "Templo Antigo, emandando uma intensa magia",
-        montarHistoria: function (nome) {
-          var historia = `Dentro do Templo Antigo ${nome} se depara com um Amuleto de Transmutação, onde logo o pega e guarda em seu invetário`;
-          return historia;
-        },
-        escolhas: [pontoD],
-        item: "Amuleto de Transmutação",
+        escolhas: [pontoSinuca, pontoFinal],
       };
 
       var pontoC = {
         nome: "Caverna Subterrânea, emanando uma energia ardente",
         montarHistoria: function (nome) {
           var historia = `Dentro da Carverna Subterrânea ${nome} se depara com um Amuleto Lança-Chamas, onde logo o pega e guarda em seu invetário`;
+          player.equipamentos.push(pontoC.item);
           return historia;
         },
         escolhas: [pontoD],
-        item: "Amuleto Lança-Chamas",
+        item: { id: 6, nome: "Amuleto Lança-Chamas" },
+      };
+
+      var pontoB = {
+        nome: "Templo Antigo, emandando uma intensa magia",
+        montarHistoria: function (nome) {
+          var historia = `Dentro do Templo Antigo ${nome} se depara com um Amuleto de Transmutação, onde logo o pega e guarda em seu invetário`;
+          player.equipamentos.push(pontoB.item);
+          return historia;
+        },
+        escolhas: [pontoD],
+        item: { id: 5, nome: "Amuleto de Transmutação" },
       };
 
       var pontoA = {
@@ -69,15 +97,6 @@
         },
         escolhas: [pontoB, pontoC],
       };
-
-      /* var pontoD = {
-        historia: msgHistoria2,
-      }; */
-
-      var caminhosHistoria1 = [
-        { id: 1, caminho: "Templo Antigo, emandando uma intensa magia" },
-        { id: 2, caminho: "Caverna Subterrânea, emanando uma energia ardente" },
-      ];
 
       var MSG_EQUIPAMENTO1 = function (ordem) {
         return `Escolha o número do seu ${ordem}° equipamento:\n`;
@@ -125,17 +144,6 @@
           }
         }
       }
-
-      function montarHistoria1(fraseHistoria, caminhos) {
-        var frase = fraseHistoria;
-        for (var indice = 0; indice < caminhos.length; indice += 1) {
-          frase = frase.concat(
-            caminhos[indice].id + "- " + caminhos[indice].caminho + "\n"
-          );
-        }
-        return frase;
-      }
-
       while (player.nome == "") {
         player.nome = window.prompt("Escolha seu nome:");
       }
@@ -147,20 +155,36 @@
       var pontoAtual = pontoA;
 
       while (pontoAtual.nome != pontoFinal.nome) {
-        if (pontoAtual.escolhas.length == 1) {
-          alert(pontoAtual.montarHistoria(player.nome));
-          pontoAtual = pontoAtual.escolhas[0];
+        if (pontoAtual.nome != pontoD.nome) {
+          if (pontoAtual.escolhas.length == 1) {
+            alert(pontoAtual.montarHistoria(player.nome));
+            pontoAtual = pontoAtual.escolhas[0];
+          } else {
+            var caminhoEscolhido = window.prompt(
+              pontoAtual.montarHistoria(player.nome)
+            );
+            pontoAtual = pontoAtual.escolhas[caminhoEscolhido - 1];
+          }
+          console.log(pontoAtual);
         } else {
-          var caminhoEscolhido = window.prompt(
-            //montarHistoria1(msgHistoria1(player.nome), caminhosHistoria1)
-            pontoAtual.montarHistoria(player.nome)
-          );
-          pontoAtual = pontoAtual.escolhas[caminhoEscolhido - 1];
+          var possuiArmadura = player.equipamentos.some(function (equipamento) {
+            return equipamento.id == 3;
+          });
+          if (possuiArmadura == true) {
+            alert(pontoAtual.montarHistoria(player.nome));
+            alert(
+              `${player.nome} possui uma "Armadura", o que facilita sua batalha contra os mortos-vivos. Troca muitos golpes mas sofre apenas alguns ferimentos leves. Após bastante suor consegue elimiar todos os inimigos e continua avançando em direção ao seu destino`
+            );
+            pontoAtual = pontoAtual.escolhas[1];
+          } else {
+            alert(pontoAtual.montarHistoria(player.nome));
+            alert(
+              `${player.nome} não possui uma "Armadura", o que dificulta sua batalha contra os mortos-vivos. Acaba trocando muitos golpes que com o passar da luta vão pesando, e ${player.nome} vai sentindo seus ferimentos se acumulando`
+            );
+            pontoAtual = pontoAtual.escolhas[0];
+          }
         }
-        console.log(pontoAtual);
       }
-
-      alert(pontoFinal.montarHistoria(player.nome));
     </script>
   </body>
 </html>
