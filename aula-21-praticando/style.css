@@ -1,0 +1,99 @@
+.conteiner {
+  display: grid;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 115px;
+}
+
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.imgLogo {
+  height: 50px;
+}
+
+.menuBar {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  width: 800px;
+  margin-top: -25px;
+  border-radius: 3px;
+  justify-content: center;
+  background-color: rgb(52, 171, 177);
+  z-index: 1;
+}
+
+.menuButton {
+  border-left: solid 0.25px white;
+  border-right: solid 0.25px white;
+  border-top: none;
+  border-bottom: none;
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  background-color: rgb(52, 171, 177);
+}
+
+.welcomeHospital {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+.welcomeHospital:before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  opacity: 0.7;
+  content: "";
+  margin-top: -25px;
+  background-image: url(imagens/macas.jpeg);
+  justify-self: center;
+  height: 474px;
+  width: 1000px;
+}
+
+.hospitalIcon {
+  height: 60px;
+  padding-bottom: 20px;
+}
+
+.welcomeTitle {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 55px;
+  font-weight: 650;
+}
+
+.welcomeSubtitle {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 40px;
+}
+
+.hookButton {
+  color: white;
+  border: solid 0.5px white;
+  background: none;
+  height: 55px;
+  width: 190px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.capaBotton {
+  display: flex;
+  flex-direction: row;
+}
